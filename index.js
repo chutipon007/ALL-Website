@@ -4,7 +4,7 @@ const client = new Paho.MQTT.Client("broker.hivemq.com", Number(8000), 'clientId
 // Set MQTT Callback Function
 client.onMessageArrived = onMessageArrived;
 client.onConnectionLost = onConnectionLost;
-client.connect({onSuccess:onConnect});
+client.connect({onSuccess:onConnect, useSSL: true });
 
 // Create Data Variables
 var ax1_data = [];
