@@ -36,7 +36,7 @@ var hr_data = [];
 var xlabel = {
     title: "Data Point",
     range: [0, 50],
-    autorange: true
+    autorange: false
   };
 var ylabel = {
     title: "Value",
