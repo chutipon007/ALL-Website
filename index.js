@@ -11,7 +11,6 @@ client.connect({
   onFailure: onFailure
 });
 
-
 // Create Data Variables
 var ax1_data = [];
 var ay1_data = [];
