@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALL Wheelchair</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- import MQTT Library -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script>  -->
+    <script src="paho.javascript-1.0.3/paho-mqtt.js"></script>
+     <!--Include Plotly Library  -->
+    <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <header>
+        <h1>ALL Wheelchair</h1><br>
+    </header>
+    <main>
+        <p id="data">Test</p>
+        <div class="container">
+            <div id="ax1" style="width:450px; height:250px;"></div>
+            <div id="ay1" style="width:450px; height:250px;"></div>
+            <div id="az1" style="width:450px; height:250px;"></div>
+            <div id="gx1" style="width:450px; height:250px;"></div>
+            <div id="gy1" style="width:450px; height:250px;"></div>
+            <div id="gz1" style="width:450px; height:250px;"></div>
+            <div id="ax2" style="width:450px; height:250px;"></div>
+            <div id="ay2" style="width:450px; height:250px;"></div>
+            <div id="az2" style="width:450px; height:250px;"></div>
+            <div id="gx2" style="width:450px; height:250px;"></div>
+            <div id="gy2" style="width:450px; height:250px;"></div>
+            <div id="gz2" style="width:450px; height:250px;"></div>
+            <div id="axm" style="width:450px; height:250px;"></div>
+            <div id="aym" style="width:450px; height:250px;"></div>
+            <div id="azm" style="width:450px; height:250px;"></div>
+            <div id="gxm" style="width:450px; height:250px;"></div>
+            <div id="gym" style="width:450px; height:250px;"></div>
+            <div id="gzm" style="width:450px; height:250px;"></div>
+        </div class="container">
+        <div class="heart">
+            <div id="hr" style="width:1350px; height:250px;"></div>
+        </div>
+    </main>
+    <script src="index.js"></script>
+</body>
+</html>

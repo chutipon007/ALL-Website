@@ -1,0 +1,38 @@
+header{
+    color:white;
+    background: linear-gradient(red, purple);
+    background-repeat: no-repeat;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    /* background-size: cover;
+    background-attachment: fixed;
+    background-position: center; */
+}
+
+section{
+    grid-column: span 2;
+    margin-bottom: 4rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.container{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
+    width: 200px;
+    margin: 0;
+}
+
+/* .heart{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    width: 200px;
+    margin: 0;
+} */
