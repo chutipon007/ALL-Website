@@ -1,10 +1,11 @@
 // Start MQTT Connection
 const clientId = "clientId-" + Math.random().toString(16);   // Like clientId-1
-const client = new Paho.MQTT.Client("broker.hivemq.com", Number(8000), "mqtt-dashboard-client");
+const client = new Paho.MQTT.Client("mqtt-dashboard.com", Number(8000), clientId);
+
 // Set MQTT Callback Function
 client.onMessageArrived = onMessageArrived;
 client.onConnectionLost = onConnectionLost;
-client.connect({onSuccess:onConnect, useSSL: true });
+client.connect({onSuccess:onConnect});
 
 // Create Data Variables
 var ax1_data = [];
@@ -63,7 +64,6 @@ function onMessageArrived(message) {
   console.log("onMessageArrived:"+message.payloadString);
   var data = JSON.parse(message.payloadString);
   if ("ax1" in data){
-    document.getElementById("data").innerHTML = data.ax1;
     ax1_data = ax1_data.concat(data.ax1);
     ay1_data = ay1_data.concat(data.ay1);
     az1_data = az1_data.concat(data.az1);
@@ -94,6 +94,10 @@ function onMessageArrived(message) {
     hr_data = hr_data.concat(data.hr);
     plot_data_hr();
   }
+  else if ("name" in data) {
+    document.getElementById("data").innerHTML = "Username : " + data.name;
+  }
+
 }
 
 // Function To Plot Data 1
