@@ -1,11 +1,16 @@
 // Start MQTT Connection
 const clientId = "clientId-" + Math.random().toString(16);   // Like clientId-1
-const client = new Paho.MQTT.Client("mqtt-dashboard.com", Number(8000), clientId);
+const client = new Paho.MQTT.Client("broker.hivemq.com", Number(8884), "/mqtt", clientId);
 
 // Set MQTT Callback Function
 client.onMessageArrived = onMessageArrived;
 client.onConnectionLost = onConnectionLost;
-client.connect({onSuccess:onConnect});
+client.connect({
+  useSSL: true,
+  onSuccess: onConnect,
+  onFailure: onFailure
+});
+
 
 // Create Data Variables
 var ax1_data = [];
@@ -50,6 +55,11 @@ function onConnect() {
   message = new Paho.MQTT.Message(JSON.stringify({"data":"HELLO MQTT"}));
   message.destinationName = "ton/server";
   // client.send(message);
+}
+
+// MQTT Connection Failure Function
+function onFailure(responseObject) {
+  console.log("Connection Failed: " + responseObject.errorMessage);
 }
 
 // MQTT Connection Lost Function
