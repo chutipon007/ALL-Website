@@ -31,26 +31,6 @@ var gxm_data = [];
 var gym_data = [];
 var gzm_data = [];
 var hr_data = [];
-
-var xlabel = {
-    title: "Data Point",
-    range: [0, 50],
-    autorange: false
-  };
-var ylabel = {
-    title: "Value",
-    range: [0, 30],
-    autorange: true
-  };
-var legend = {
-    y:0.5,
-    font:{size: 16}
-    // traceorder: 'reversed',
-  };
-
-var layout = {
-  grid: {rows: 1, columns: 3, pattern: 'independent'},
-};
   
 // MQTT Connect Function
 function onConnect() {
@@ -134,8 +114,44 @@ function plot_data1() {
   var gx_ = {y:gx_plot, type: 'lines', name:"Gyro X1", showlegend:false, marker:{color:"red"}};
   var gy_ = {y:gy_plot, type: 'lines', name:"Gyro Y1", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
   var gz_ = {y:gz_plot, type: 'lines', name:"Gyro Z1", showlegend:false, xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
-  Plotly.newPlot("ax1", [ax_, ay_, az_], {title:"Acceleration", xaxis:xlabel, xaxis2:xlabel, xaxis3:xlabel, yaxis:ylabel, grid: {rows: 1, columns: 3, pattern: 'independent'}});
-  Plotly.newPlot("gx1", [gx_, gy_, gz_], {title:"Gyroscope", xaxis:xlabel, xaxis2:xlabel, xaxis3:xlabel, yaxis:ylabel, grid: {rows: 1, columns: 3, pattern: 'independent'}});
+  
+  Plotly.newPlot("ax1", [ax_, ay_, az_], {title:"XIAO 1 Acceleration", 
+    xaxis:{
+      title: "Accel X1",
+      range: [0, 50],
+      autorange: false
+    }, xaxis2:{
+      title: "Accel Y1",
+      range: [0, 50],
+      autorange: false
+    }, xaxis3:{
+      title: "Accel Z1",
+      range: [0, 50],
+      autorange: false
+    }, yaxis:{
+      title: "Gravity (g)",
+      range: [0, 30],
+      autorange: true
+    }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
+
+  Plotly.newPlot("gx1", [gx_, gy_, gz_], {title:"XIAO 1 Gyroscope", 
+    xaxis:{
+      title: "Gyro X1",
+      range: [0, 50],
+      autorange: false
+    }, xaxis2:{
+      title: "Gyro Y1",
+      range: [0, 50],
+      autorange: false
+    }, xaxis3:{
+      title: "Gyro Z1",
+      range: [0, 50],
+      autorange: false
+    }, yaxis:{
+      title: "Velocity (deg/s)",
+      range: [0, 30],
+      autorange: true
+    }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 }
 
 // Function To Plot Data 2
@@ -146,13 +162,51 @@ function plot_data2() {
   var gx_plot = gx2_data.slice(-50);
   var gy_plot = gy2_data.slice(-50);
   var gz_plot = gz2_data.slice(-50);
-  ax = document.getElementById("ax");
-  Plotly.newPlot("ax2", [{y: ax_plot, mode:"lines", name:"ax", marker:{color:"red"}}], {title:"Accel X2", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("ay2", [{y: ay_plot, mode:"lines", name:"ay", marker:{color:"blue"}}], {title:"Accel Y2", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("az2", [{y: az_plot, mode:"lines", name:"ay", marker:{color:"green"}}], {title:"Accel Z2", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("gx2", [{y: gx_plot, mode:"lines", name:"gx", marker:{color:"red"}}], {title:"Gyro X2", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("gy2", [{y: gy_plot, mode:"lines", name:"gy", marker:{color:"blue"}}], {title:"Gyro Y2", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("gz2", [{y: gz_plot, mode:"lines", name:"gy", marker:{color:"green"}}], {title:"Gyro Z2", xaxis:xlabel, yaxis:ylabel});
+
+  var ax_ = {y:ax_plot, type: 'lines', name:"Accel X2", showlegend:false, marker:{color:"red"}};
+  var ay_ = {y:ay_plot, type: 'lines', name:"Accel Y2", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
+  var az_ = {y:az_plot, type: 'lines', name:"Accel Z2", showlegend:false, xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
+  var gx_ = {y:gx_plot, type: 'lines', name:"Gyro X2", showlegend:false, marker:{color:"red"}};
+  var gy_ = {y:gy_plot, type: 'lines', name:"Gyro Y2", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
+  var gz_ = {y:gz_plot, type: 'lines', name:"Gyro Z2", showlegend:false, xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
+
+  Plotly.newPlot("ax2", [ax_, ay_, az_], {title:"XIAO 2 Acceleration", 
+    xaxis:{
+      title: "Accel X2",
+      range: [0, 50],
+      autorange: false
+    }, xaxis2:{
+      title: "Accel Y2",
+      range: [0, 50],
+      autorange: false
+    }, xaxis3:{
+      title: "Accel Z2",
+      range: [0, 50],
+      autorange: false
+    }, yaxis:{
+      title: "Gravity (g)",
+      range: [0, 30],
+      autorange: true
+    }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
+
+  Plotly.newPlot("gx2", [gx_, gy_, gz_], {title:"XIAO 2 Gyroscope", 
+    xaxis:{
+      title: "Gyro X2",
+      range: [0, 50],
+      autorange: false
+    }, xaxis2:{
+      title: "Gyro Y2",
+      range: [0, 50],
+      autorange: false
+    }, xaxis3:{
+      title: "Gyro Z2",
+      range: [0, 50],
+      autorange: false
+    }, yaxis:{
+      title: "Velocity (deg/s)",
+      range: [0, 30],
+      autorange: true
+    }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 }
 
 // Function To Plot Data M5
@@ -163,16 +217,63 @@ function plot_data_m() {
   var gx_plot = gxm_data.slice(-50);
   var gy_plot = gym_data.slice(-50);
   var gz_plot = gzm_data.slice(-50);
-  ax = document.getElementById("ax");
-  Plotly.newPlot("axm", [{y: ax_plot, mode:"lines", name:"ax", marker:{color:"red"}}], {title:"Accel X", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("aym", [{y: ay_plot, mode:"lines", name:"ay", marker:{color:"blue"}}], {title:"Accel Y", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("azm", [{y: az_plot, mode:"lines", name:"ay", marker:{color:"green"}}], {title:"Accel Z", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("gxm", [{y: gx_plot, mode:"lines", name:"gx", marker:{color:"red"}}], {title:"Gyro X", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("gym", [{y: gy_plot, mode:"lines", name:"gy", marker:{color:"blue"}}], {title:"Gyro Y", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("gzm", [{y: gz_plot, mode:"lines", name:"gy", marker:{color:"green"}}], {title:"Gyro Z", xaxis:xlabel, yaxis:ylabel});
+
+  var ax_ = {y:ax_plot, type: 'lines', name:"Accel X2", showlegend:false, marker:{color:"red"}};
+  var ay_ = {y:ay_plot, type: 'lines', name:"Accel Y2", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
+  var az_ = {y:az_plot, type: 'lines', name:"Accel Z2", showlegend:false, xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
+  var gx_ = {y:gx_plot, type: 'lines', name:"Gyro X2", showlegend:false, marker:{color:"red"}};
+  var gy_ = {y:gy_plot, type: 'lines', name:"Gyro Y2", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
+  var gz_ = {y:gz_plot, type: 'lines', name:"Gyro Z2", showlegend:false, xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
+
+  Plotly.newPlot("axm", [ax_, ay_, az_], {title:"M5StickC Acceleration", 
+    xaxis:{
+      title: "Accel X",
+      range: [0, 50],
+      autorange: false
+    }, xaxis2:{
+      title: "Accel Y",
+      range: [0, 50],
+      autorange: false
+    }, xaxis3:{
+      title: "Accel Z",
+      range: [0, 50],
+      autorange: false
+    }, yaxis:{
+      title: "Gravity (g)",
+      range: [0, 30],
+      autorange: true
+    }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
+
+  Plotly.newPlot("gxm", [gx_, gy_, gz_], {title:"M5StickC Gyroscope", 
+    xaxis:{
+      title: "Gyro X",
+      range: [0, 50],
+      autorange: false
+    }, xaxis2:{
+      title: "Gyro Y",
+      range: [0, 50],
+      autorange: false
+    }, xaxis3:{
+      title: "Gyro Z",
+      range: [0, 50],
+      autorange: false
+    }, yaxis:{
+      title: "Velocity (deg/s)",
+      range: [0, 30],
+      autorange: true
+    }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 }
 
 // Function To Plot HR Data
 function plot_data_hr() {
-  Plotly.newPlot("hr", [{y: hr_data, mode:"lines", name:"Hr", marker:{color:"chartreuse"}}], {title:"Heart Rate", xaxis:xlabel, yaxis:ylabel});
+  Plotly.newPlot("hr", [{y: hr_data, mode:"lines", name:"Hr", marker:{color:"chartreuse"}}], {title:"Heart Rate", 
+    xaxis:{
+      title: "Data",
+      range: [0, 30],
+      autorange: true
+    }, yaxis:{
+      title: "Heart Rate (bpm)",
+      range: [0, 30],
+      autorange: true
+    }});
 }
