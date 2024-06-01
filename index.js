@@ -76,40 +76,46 @@ function onConnectionLost(responseObject) {
 // MQTT Message Arrive Function
 function onMessageArrived(message) {
   console.log("onMessageArrived:"+message.payloadString);
-  var data = JSON.parse(message.payloadString);
-  if ("ax1" in data){
-    ax1_data = ax1_data.concat(data.ax1);
-    ay1_data = ay1_data.concat(data.ay1);
-    az1_data = az1_data.concat(data.az1);
-    gx1_data = gx1_data.concat(data.gx1);
-    gy1_data = gy1_data.concat(data.gy1);
-    gz1_data = gz1_data.concat(data.gz1);
-    plot_data1();
-  }
-  else if ("ax2" in data){
-    ax2_data = ax2_data.concat(data.ax2);
-    ay2_data = ay2_data.concat(data.ay2);
-    az2_data = az2_data.concat(data.az2);
-    gx2_data = gx2_data.concat(data.gx2);
-    gy2_data = gy2_data.concat(data.gy2);
-    gz2_data = gz2_data.concat(data.gz2);
-    plot_data2();
-  }
-  else if ("axm" in data){
-    axm_data = axm_data.concat(data.axm);
-    aym_data = aym_data.concat(data.aym);
-    azm_data = azm_data.concat(data.azm);
-    gxm_data = gxm_data.concat(data.gxm);
-    gym_data = gym_data.concat(data.gym);
-    gzm_data = gzm_data.concat(data.gzm);
-    plot_data_m();
-  }
-  else if ("hr" in data){
-    hr_data = hr_data.concat(data.hr);
-    plot_data_hr();
-  }
-  else if ("name" in data) {
-    document.getElementById("data").innerHTML = "Username : " + data.name;
+  try {
+    var data = JSON.parse(message.payloadString);
+    // Process the payload
+    if ("ax1" in data){
+      ax1_data = ax1_data.concat(data.ax1);
+      ay1_data = ay1_data.concat(data.ay1);
+      az1_data = az1_data.concat(data.az1);
+      gx1_data = gx1_data.concat(data.gx1);
+      gy1_data = gy1_data.concat(data.gy1);
+      gz1_data = gz1_data.concat(data.gz1);
+      plot_data1();
+    }
+    else if ("ax2" in data){
+      ax2_data = ax2_data.concat(data.ax2);
+      ay2_data = ay2_data.concat(data.ay2);
+      az2_data = az2_data.concat(data.az2);
+      gx2_data = gx2_data.concat(data.gx2);
+      gy2_data = gy2_data.concat(data.gy2);
+      gz2_data = gz2_data.concat(data.gz2);
+      plot_data2();
+    }
+    else if ("axm" in data){
+      axm_data = axm_data.concat(data.axm);
+      aym_data = aym_data.concat(data.aym);
+      azm_data = azm_data.concat(data.azm);
+      gxm_data = gxm_data.concat(data.gxm);
+      gym_data = gym_data.concat(data.gym);
+      gzm_data = gzm_data.concat(data.gzm);
+      plot_data_m();
+    }
+    else if ("hr" in data){
+      hr_data = hr_data.concat(data.hr);
+      plot_data_hr();
+    }
+    else if ("name" in data) {
+      document.getElementById("data").innerHTML = "Username : " + data.name;
+    }
+  }catch (e) {
+    console.error('Failed to parse JSON:', e);
+    console.error('Original message payload:', message.payloadString);
   }
 }
 
