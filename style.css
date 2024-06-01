@@ -20,18 +20,19 @@ section{
 }
 
 .container{
-/*     display: grid;
+    /* display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr 1fr; */
-    margin: 0;
+    grid-gap: 5px;
     min-width: 100;
+    margin: 0;
 }
 
-/* .heart{
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-template-columns: 1fr;
-    grid-gap: 5px;
-    width: 200px;
-    margin: 0;
-} */
+.led_div {
+    text-align: center;
+}
+
+.led_span {
+    color: green;
+    font-size: 100px;
+}
