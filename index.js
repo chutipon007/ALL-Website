@@ -47,6 +47,11 @@ var legend = {
     font:{size: 16}
     // traceorder: 'reversed',
   };
+
+var layout = {
+  grid: {rows: 1, columns: 3, pattern: 'independent'},
+};
+  
 // MQTT Connect Function
 function onConnect() {
   console.log("Connected");
@@ -106,7 +111,6 @@ function onMessageArrived(message) {
   else if ("name" in data) {
     document.getElementById("data").innerHTML = "Username : " + data.name;
   }
-
 }
 
 // Function To Plot Data 1
@@ -117,13 +121,15 @@ function plot_data1() {
   var gx_plot = gx1_data.slice(-50);
   var gy_plot = gy1_data.slice(-50);
   var gz_plot = gz1_data.slice(-50);
-  ax = document.getElementById("ax");
-  Plotly.newPlot("ax1", [{y: ax_plot, mode:"lines", name:"ax", marker:{color:"red"}}], {title:"Accel X1", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("ay1", [{y: ay_plot, mode:"lines", name:"ay", marker:{color:"blue"}}], {title:"Accel Y1", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("az1", [{y: az_plot, mode:"lines", name:"ay", marker:{color:"green"}}], {title:"Accel Z1", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("gx1", [{y: gx_plot, mode:"lines", name:"gx", marker:{color:"red"}}], {title:"Gyro X1", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("gy1", [{y: gy_plot, mode:"lines", name:"gy", marker:{color:"blue"}}], {title:"Gyro Y1", xaxis:xlabel, yaxis:ylabel});
-  Plotly.newPlot("gz1", [{y: gz_plot, mode:"lines", name:"gy", marker:{color:"green"}}], {title:"Gyro Z1", xaxis:xlabel, yaxis:ylabel});
+
+  var ax_ = {y:ax_plot, type: 'lines', name:"Accel X1", marker:{color:"red"}};
+  var ay_ = {y:ay_plot, type: 'lines', name:"Accel Y1", xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
+  var az_ = {y:az_plot, type: 'lines', name:"Accel Z1", xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
+  var gx_ = {y:gx_plot, type: 'lines', name:"Gyro X1", marker:{color:"red"}};
+  var gy_ = {y:gy_plot, type: 'lines', name:"Gyro Y1", xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
+  var gz_ = {y:gz_plot, type: 'lines', name:"Gyro Z1", xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
+  Plotly.newPlot("ax1", [ax_, ay_, az_], {title:"Acceleration", xaxis:xlabel, xaxis2:xlabel, xaxis3:xlabel, yaxis:ylabel, grid: {rows: 1, columns: 3, pattern: 'independent'}});
+  Plotly.newPlot("gx1", [gx_, gy_, gz_], {title:"Gyroscope", xaxis:xlabel, xaxis2:xlabel, xaxis3:xlabel, yaxis:ylabel, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 }
 
 // Function To Plot Data 2
