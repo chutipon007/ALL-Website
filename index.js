@@ -101,12 +101,12 @@ function onMessageArrived(message) {
 
 // Function To Plot Data 1
 function plot_data1() {
-  var ax_plot = ax1_data.slice(-50);
-  var ay_plot = ay1_data.slice(-50);
-  var az_plot = az1_data.slice(-50);
-  var gx_plot = gx1_data.slice(-50);
-  var gy_plot = gy1_data.slice(-50);
-  var gz_plot = gz1_data.slice(-50);
+  var ax_plot = movingAverage(ax1_data.slice(-50), 5);
+  var ay_plot = movingAverage(ay1_data.slice(-50), 5);
+  var az_plot = movingAverage(az1_data.slice(-50), 5);
+  var gx_plot = movingAverage(gx1_data.slice(-50), 5);
+  var gy_plot = movingAverage(gy1_data.slice(-50), 5);
+  var gz_plot = movingAverage(gz1_data.slice(-50), 5);
 
   var ax_ = {y:ax_plot, type: 'lines', name:"Accel X1", showlegend:false, marker:{color:"red"}};
   var ay_ = {y:ay_plot, type: 'lines', name:"Accel Y1", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
@@ -276,4 +276,24 @@ function plot_data_hr() {
       range: [0, 30],
       autorange: true
     }});
+}
+
+// Function To Calculate Moving Average
+function movingAverage(data, windowSize) {
+  if (windowSize <= 0) {
+      throw new Error("Window size must be greater than 0");
+  }
+  if (data.length < windowSize) {
+      throw new Error("Data length must be greater than or equal to the window size");
+  }
+
+  let movingAverages = [];
+
+  for (let i = 0; i <= data.length - windowSize; i++) {
+      let window = data.slice(i, i + windowSize);
+      let sum = window.reduce((acc, num) => acc + num, 0);
+      movingAverages.push(sum / windowSize);
+  }
+
+  return movingAverages;
 }
