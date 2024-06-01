@@ -168,12 +168,12 @@ function plot_data1() {
 
 // Function To Plot Data 2
 function plot_data2() {
-  var ax_plot = movingAverage(ax1_data.slice(-50), 5);
-  var ay_plot = movingAverage(ay1_data.slice(-50), 5);
-  var az_plot = movingAverage(az1_data.slice(-50), 5);
-  var gx_plot = movingAverage(gx1_data.slice(-50), 5);
-  var gy_plot = movingAverage(gy1_data.slice(-50), 5);
-  var gz_plot = movingAverage(gz1_data.slice(-50), 5);
+  var ax_plot = movingAverage(ax2_data.slice(-50), 5);
+  var ay_plot = movingAverage(ay2_data.slice(-50), 5);
+  var az_plot = movingAverage(az2_data.slice(-50), 5);
+  var gx_plot = movingAverage(gx2_data.slice(-50), 5);
+  var gy_plot = movingAverage(gy2_data.slice(-50), 5);
+  var gz_plot = movingAverage(gz2_data.slice(-50), 5);
 
   var ax_ = {y:ax_plot, type: 'lines', name:"Accel X2", showlegend:false, marker:{color:"red"}};
   var ay_ = {y:ay_plot, type: 'lines', name:"Accel Y2", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
@@ -235,12 +235,12 @@ function plot_data2() {
 
 // Function To Plot Data M5
 function plot_data_m() {
-  var ax_plot = movingAverage(ax1_data.slice(-50), 5);
-  var ay_plot = movingAverage(ay1_data.slice(-50), 5);
-  var az_plot = movingAverage(az1_data.slice(-50), 5);
-  var gx_plot = movingAverage(gx1_data.slice(-50), 5);
-  var gy_plot = movingAverage(gy1_data.slice(-50), 5);
-  var gz_plot = movingAverage(gz1_data.slice(-50), 5);
+  var ax_plot = movingAverage(axm_data.slice(-50), 5);
+  var ay_plot = movingAverage(aym_data.slice(-50), 5);
+  var az_plot = movingAverage(azm_data.slice(-50), 5);
+  var gx_plot = movingAverage(gxm_data.slice(-50), 5);
+  var gy_plot = movingAverage(gym_data.slice(-50), 5);
+  var gz_plot = movingAverage(gzm_data.slice(-50), 5);
 
   var ax_ = {y:ax_plot, type: 'lines', name:"Accel X2", showlegend:false, marker:{color:"red"}};
   var ay_ = {y:ay_plot, type: 'lines', name:"Accel Y2", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
