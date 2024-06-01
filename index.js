@@ -67,6 +67,7 @@ function onMessageArrived(message) {
       gy1_data = gy1_data.concat(data.gy1);
       gz1_data = gz1_data.concat(data.gz1);
       plot_data1();
+      falling_check();
     }
     else if ("ax2" in data){
       ax2_data = ax2_data.concat(data.ax2);
@@ -332,4 +333,22 @@ function movingAverage(data, windowSize) {
   }
 
   return movingAverages;
+}
+
+// Function to Check if Wheelchair is falling
+function falling_check() {
+  if (az1_data.length > 1 && az2_data.length > 1){
+    let last_idx = az1_data.pop();
+    let last_id2 = az2_data.pop();
+    let led_label = document.getElementById("led_label");
+    let led_color = document.getElementById("led_span");
+    if ((last_idx > -0.7 && last_idx < 0.7) && (last_id2 > -0.7 && last_id2 < 0.7)){
+      led_color.style.color = "green";
+      led_label.innerHTML = "Falling Status : Not Falling";
+    }
+    else {
+      led_color.style.color = "red";
+      led_label.innerHTML = "Falling Status : Falling";
+    }
+  }
 }
