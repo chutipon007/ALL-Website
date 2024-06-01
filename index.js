@@ -132,6 +132,12 @@ function plot_data1() {
       title: "Gravity (g)",
       range: [-1.5, 1.5],
       autorange: false
+    }, yaxis2:{
+      range: [-1.5, 1.5],
+      autorange: false
+    }, yaxis3:{
+      range: [-1.5, 1.5],
+      autorange: false
     }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 
   Plotly.newPlot("gx1", [gx_, gy_, gz_], {title:"XIAO 1 Gyroscope", 
@@ -149,6 +155,12 @@ function plot_data1() {
       autorange: false
     }, yaxis:{
       title: "Velocity (deg/s)",
+      range: [-250, 250],
+      autorange: false
+    }, yaxis2:{
+      range: [-250, 250],
+      autorange: false
+    }, yaxis3:{
       range: [-250, 250],
       autorange: false
     }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
@@ -187,6 +199,12 @@ function plot_data2() {
       title: "Gravity (g)",
       range: [-1.5, 1.5],
       autorange: false
+    }, yaxis2:{
+      range: [-1.5, 1.5],
+      autorange: false
+    }, yaxis3:{
+      range: [-1.5, 1.5],
+      autorange: false
     }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 
   Plotly.newPlot("gx2", [gx_, gy_, gz_], {title:"XIAO 2 Gyroscope", 
@@ -204,6 +222,12 @@ function plot_data2() {
       autorange: false
     }, yaxis:{
       title: "Velocity (deg/s)",
+      range: [-250, 250],
+      autorange: false
+    }, yaxis2:{
+      range: [-250, 250],
+      autorange: false
+    }, yaxis3:{
       range: [-250, 250],
       autorange: false
     }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
@@ -242,6 +266,12 @@ function plot_data_m() {
       title: "Gravity (g)",
       range: [-1.5, 1.5],
       autorange: false
+    }, yaxis2:{
+      range: [-1.5, 1.5],
+      autorange: false
+    }, yaxis3:{
+      range: [-1.5, 1.5],
+      autorange: false
     }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 
   Plotly.newPlot("gxm", [gx_, gy_, gz_], {title:"M5StickC Gyroscope", 
@@ -259,6 +289,12 @@ function plot_data_m() {
       autorange: false
     }, yaxis:{
       title: "Velocity (deg/s)",
+      range: [-250, 250],
+      autorange: false
+    }, yaxis2:{
+      range: [-250, 250],
+      autorange: false
+    }, yaxis3:{
       range: [-250, 250],
       autorange: false
     }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
