@@ -67,7 +67,6 @@ function onMessageArrived(message) {
       gy1_data = gy1_data.concat(data.gy1);
       gz1_data = gz1_data.concat(data.gz1);
       plot_data1();
-      falling_check();
     }
     else if ("ax2" in data){
       ax2_data = ax2_data.concat(data.ax2);
@@ -94,6 +93,7 @@ function onMessageArrived(message) {
     else if ("name" in data) {
       document.getElementById("data").innerHTML = "Username : " + data.name;
     }
+    falling_check();
   }catch (e) {
     console.error('Failed to parse JSON:', e);
     console.error('Original message payload:', message.payloadString);
