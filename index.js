@@ -122,12 +122,12 @@ function plot_data1() {
   var gy_plot = gy1_data.slice(-50);
   var gz_plot = gz1_data.slice(-50);
 
-  var ax_ = {y:ax_plot, type: 'lines', name:"Accel X1", marker:{color:"red"}};
-  var ay_ = {y:ay_plot, type: 'lines', name:"Accel Y1", xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
-  var az_ = {y:az_plot, type: 'lines', name:"Accel Z1", xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
-  var gx_ = {y:gx_plot, type: 'lines', name:"Gyro X1", marker:{color:"red"}};
-  var gy_ = {y:gy_plot, type: 'lines', name:"Gyro Y1", xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
-  var gz_ = {y:gz_plot, type: 'lines', name:"Gyro Z1", xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
+  var ax_ = {y:ax_plot, type: 'lines', name:"Accel X1", showlegend:false, marker:{color:"red"}};
+  var ay_ = {y:ay_plot, type: 'lines', name:"Accel Y1", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
+  var az_ = {y:az_plot, type: 'lines', name:"Accel Z1", showlegend:false, xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
+  var gx_ = {y:gx_plot, type: 'lines', name:"Gyro X1", showlegend:false, marker:{color:"red"}};
+  var gy_ = {y:gy_plot, type: 'lines', name:"Gyro Y1", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
+  var gz_ = {y:gz_plot, type: 'lines', name:"Gyro Z1", showlegend:false, xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
   Plotly.newPlot("ax1", [ax_, ay_, az_], {title:"Acceleration", xaxis:xlabel, xaxis2:xlabel, xaxis3:xlabel, yaxis:ylabel, grid: {rows: 1, columns: 3, pattern: 'independent'}});
   Plotly.newPlot("gx1", [gx_, gy_, gz_], {title:"Gyroscope", xaxis:xlabel, xaxis2:xlabel, xaxis3:xlabel, yaxis:ylabel, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 }
