@@ -116,7 +116,7 @@ function plot_data1() {
   var gy_ = {y:gy_plot, type: 'lines', name:"Gyro Y1", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
   var gz_ = {y:gz_plot, type: 'lines', name:"Gyro Z1", showlegend:false, xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
   
-  Plotly.newPlot("ax1", [ax_, ay_, az_], {title:"XIAO 1 Acceleration", 
+  Plotly.newPlot("ax1", [ax_, ay_, az_], {title:"Right Wheel Acceleration", 
     xaxis:{
       title: "Accel X1",
       range: [0, 50],
@@ -141,7 +141,7 @@ function plot_data1() {
       autorange: false
     }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 
-  Plotly.newPlot("gx1", [gx_, gy_, gz_], {title:"XIAO 1 Gyroscope", 
+  Plotly.newPlot("gx1", [gx_, gy_, gz_], {title:"Right Wheel Gyroscope", 
     xaxis:{
       title: "Gyro X1",
       range: [0, 50],
@@ -183,7 +183,7 @@ function plot_data2() {
   var gy_ = {y:gy_plot, type: 'lines', name:"Gyro Y2", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
   var gz_ = {y:gz_plot, type: 'lines', name:"Gyro Z2", showlegend:false, xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
 
-  Plotly.newPlot("ax2", [ax_, ay_, az_], {title:"XIAO 2 Acceleration", 
+  Plotly.newPlot("ax2", [ax_, ay_, az_], {title:"Left Wheel Acceleration", 
     xaxis:{
       title: "Accel X2",
       range: [0, 50],
@@ -208,7 +208,7 @@ function plot_data2() {
       autorange: false
     }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 
-  Plotly.newPlot("gx2", [gx_, gy_, gz_], {title:"XIAO 2 Gyroscope", 
+  Plotly.newPlot("gx2", [gx_, gy_, gz_], {title:"Left Wheel Gyroscope", 
     xaxis:{
       title: "Gyro X2",
       range: [0, 50],
@@ -250,7 +250,7 @@ function plot_data_m() {
   var gy_ = {y:gy_plot, type: 'lines', name:"Gyro Y2", showlegend:false, xaxis: 'x2', yaxis: 'y2', marker:{color:"green"}};
   var gz_ = {y:gz_plot, type: 'lines', name:"Gyro Z2", showlegend:false, xaxis: 'x3', yaxis: 'y3', marker:{color:"blue"}};
 
-  Plotly.newPlot("axm", [ax_, ay_, az_], {title:"M5StickC Acceleration", 
+  Plotly.newPlot("axm", [ax_, ay_, az_], {title:"Arm Acceleration", 
     xaxis:{
       title: "Accel X",
       range: [0, 50],
@@ -275,7 +275,7 @@ function plot_data_m() {
       autorange: false
     }, grid: {rows: 1, columns: 3, pattern: 'independent'}});
 
-  Plotly.newPlot("gxm", [gx_, gy_, gz_], {title:"M5StickC Gyroscope", 
+  Plotly.newPlot("gxm", [gx_, gy_, gz_], {title:"Arm Gyroscope", 
     xaxis:{
       title: "Gyro X",
       range: [0, 50],
