@@ -1,6 +1,6 @@
 // Start MQTT Connection
 const clientId = "clientId-" + Math.random().toString(16);   // Like clientId-1
-const client = new Paho.MQTT.Client("broker.hivemq.com", Number(8884), "/mqtt", clientId);
+const client = new Paho.MQTT.Client("broker.emqx.io", Number(8884), "/mqtt", clientId);
 
 // Set MQTT Callback Function
 client.onMessageArrived = onMessageArrived;
