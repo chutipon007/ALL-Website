@@ -337,18 +337,18 @@ function movingAverage(data, windowSize) {
 
 // Function to Check if Wheelchair is falling
 function falling_check() {
+  let led_label = document.getElementById("led_label");
+  let led_color = document.getElementById("led_span");
   if (az1_data.length > 1 || az2_data.length > 1){
     let last_idx = az1_data[az1_data.length - 1];
     let last_id2 = az2_data[az2_data.length - 1];
-    let led_label = document.getElementById("led_label");
-    let led_color = document.getElementById("led_span");
-    if ((last_idx > -0.7 && last_idx < 0.7) && (last_id2 > -0.7 && last_id2 < 0.7)){
-      led_color.style.color = "green";
-      led_label.innerHTML = "Falling Status : Not Falling";
-    }
-    else {
+    if ((last_idx < -0.7 || last_idx > 0.7) || (last_id2 < -0.7 || last_id2 > 0.7)){
       led_color.style.color = "red";
       led_label.innerHTML = "Falling Status : Falling";
+    }
+    else {
+      led_color.style.color = "green";
+      led_label.innerHTML = "Falling Status : Not Falling";
     }
   }
 }
