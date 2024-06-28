@@ -338,8 +338,8 @@ function movingAverage(data, windowSize) {
 // Function to Check if Wheelchair is falling
 function falling_check() {
   if (az1_data.length > 1 && az2_data.length > 1){
-    let last_idx = az1_data.pop();
-    let last_id2 = az2_data.pop();
+    let last_idx = az1_data[az1_data.length - 1];
+    let last_id2 = az2_data[az2_data.length - 1];
     let led_label = document.getElementById("led_label");
     let led_color = document.getElementById("led_span");
     if ((last_idx > -0.7 && last_idx < 0.7) && (last_id2 > -0.7 && last_id2 < 0.7)){
