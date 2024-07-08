@@ -5,12 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ALL Wheelchair</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/x-icon" href="blueicon.jpg">
+    <link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/chutipon007/ALL-Website/main/blueicon.jpg">
+
     <!-- import MQTT Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js" type="text/javascript"></script> 
     <!-- <script src="paho.javascript-1.0.3/paho-mqtt.js"></script> -->
-     <!--Include Plotly Library  -->
+
+     <!--Import Plotly Library  -->
     <script src="https://cdn.plot.ly/plotly-2.32.0.min.js" charset="utf-8"></script>
+    
+    <!-- Include index.js -->
+    <script src="index.js" defer></script>
 </head>
 <body>
     <header>
@@ -18,30 +23,34 @@
     </header>
     <main>
         <h1 id="data">User</h1>
+        <button onclick="conn()">Start</button>
+        <button onclick="disconn()">Stop</button>
+        <button onclick="reset()">Reset</button>
+        <select id="mode" onclick="modeChange(event)">
+            <option id="analog">Analog</option>
+            <option id="digital">Digital</option>
+        </select>
         <div class="led_div">
             <span class="led_span" id="led_span">&#x25CF;</span>
             <h3 id="led_label">Falling Status : Unknown</h3>
         </div>
-        <div id="ax1" class="container"></div>
-        <div id="ay1" class="container"></div>
-        <div id="az1" class="container"></div>
-        <div id="gx1" class="container"></div>
-        <div id="gy1" class="container"></div>
-        <div id="gz1" class="container"></div>
-        <div id="ax2" class="container"></div>
-        <div id="ay2" class="container"></div>
-        <div id="az2" class="container"></div>
-        <div id="gx2" class="container"></div>
-        <div id="gy2" class="container"></div>
-        <div id="gz2" class="container"></div>
-        <div id="axm" class="container"></div>
-        <div id="aym" class="container"></div>
-        <div id="azm" class="container"></div>
-        <div id="gxm" class="container"></div>
-        <div id="gym" class="container"></div>
-        <div id="gzm" class="container"></div>
-        <div id="hr" class="hr"></div>
-    </main>
-    <script src="index.js"></script>
+        <div class="tabcontent" id="AnalogTab">
+            <div id="ax1" class="container"></div>
+            <div id="gx1" class="container"></div>
+            <div id="dist1" class="container"></div>
+            <div id="ax2" class="container"></div>
+            <div id="gx2" class="container"></div>
+            <div id="dist2" class="container"></div>
+            <div id="axm" class="container"></div>
+            <div id="gxm" class="container"></div>
+            <div id="hr" class="hr"></div>
+        </div>
+        <div class="tabcontent" id="DigitalTab">
+            <div id="digital1"></div>
+            <div id="digital2"></div>
+            <div id="digitalArm"></div>
+            <div id="digitalHr"></div>
+        </div>
+    </main>   
 </body>
 </html>
