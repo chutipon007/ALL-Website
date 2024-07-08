@@ -1,4 +1,3 @@
-document.getElementById("modeSelect").addEventListener("change", modeChange);
 // Create Data Variables
 var ax1_data = [];
 var ay1_data = [];
