@@ -19,6 +19,14 @@ section{
     justify-content: space-between;
 }
 
+#AnalogTab{
+    display: block;
+}
+
+#DigitalTab{
+    display: none;
+}
+
 .container{
     /* display: grid;
     grid-template-rows: 1fr 1fr;
@@ -35,4 +43,28 @@ section{
 .led_span {
     color: green;
     font-size: 100px;
+}
+
+button{
+    padding: 10px 20px;
+    background-color: aliceblue;
+    color: blue;
+    border-radius: 10px;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button:hover{
+    background-color: rgba(98, 182, 255, 0.781);
+}
+
+button:active{
+    background-color: rgb(49, 167, 246);
+}
+
+#mode{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.2em;
+    border-radius: 10px;
+    cursor: pointer;
 }
