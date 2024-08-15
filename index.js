@@ -426,16 +426,25 @@ function plot_data_arm() {
 
 // Function To Plot HR Data
 function plot_data_hr() {
-  Plotly.newPlot("hr", [{y: hr_data, mode:"lines", name:"Hr", marker:{color:"chartreuse"}}], {title:"Heart Rate", 
-    xaxis:{
-      title: "Data",
-      range: [0, 30],
-      autorange: true
-    }, yaxis:{
-      title: "Heart Rate (bpm)",
-      range: [0, 30],
-      autorange: true
-    }});
+  var data = [
+    {
+      type: "indicator",
+      mode: "number+delta",
+      value: hr_data[hr_data.length - 1],
+      delta: { reference: currentHR, valueformat: ".0f" },
+      domain: { y: [0, 1], x: [0.25, 0.75] },
+      title: { text: "Heart Rate" }
+    },
+    {
+      y: hr_data,
+      line: {
+        color: 'chartreuse'                 // Color for the line
+      }
+    }
+  ];
+  
+  var layout = { height: 450, xaxis: { range: [0, 62], autorange: true } ,yaxis: { title: "Heart Rate (bpm)" } , autosize: true };
+  Plotly.newPlot('hr', data, layout);  
 }
 
 // Function To Calculate Moving Average
